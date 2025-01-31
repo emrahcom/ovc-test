@@ -1,0 +1,80 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+env:
+  DOCKER_IMAGE: ghcr.io/emrahcom/ovc-test
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: npm install
+        run: npm ci
+#
+#      - name: prettier:check
+#        run: yarn prettier:check
+
+      - name: Check Linting Rules
+        run: npm run lint
+
+#      - name: type checking and declarations
+#        run: yarn tsc
+
+#      - name: check translations
+#        run: yarn translate --fail-on-update
+#
+#      - name: test
+#        run: yarn test:all
+
+      - name: build
+        run: npm run build
+
+      - name: Login to ghcr.io
+        if: ${{ github.actor != 'dependabot[bot]' }}
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.DOCKER_IMAGE }}
+          labels: |
+            org.opencontainers.image.title=ovc-frontend
+            org.opencontainers.image.description=openDesk Video Conference Frontend.
+            org.opencontainers.image.vendor=Nordeck IT + Consulting GmbH
+          tags: |
+            type=sha,prefix=
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Docker build and push
+        uses: docker/build-push-action@v6
+        id: dockerBuild
+        with:
+          push: ${{ github.actor != 'dependabot[bot]' }}
+          context: .
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          platforms: linux/amd64
+          build-args: |
+            NEXT_PUBLIC_APP_VERSION=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.version'] }}
+            NEXT_PUBLIC_BACKEND_BASE_URL=https://api.dvb.integration.dvb.nordeck.io
+            NEXT_PUBLIC_JITSI_LINK=https://jitsi.integration.dvb.nordeck.io/

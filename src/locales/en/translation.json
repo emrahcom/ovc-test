@@ -1,0 +1,27 @@
+{
+  "copy": {
+    "baseMeetingInformation_instant": "Your access data for the instant meeting from {{owner_id}}:</br></br>\n\nMeeting Link: <a href=\"{{meetingLink}}\">{{meetingLink}}</a></br></br>",
+    "baseMeetingInformation_normal": "{{owner_id}} has invited you to a meeting.</br></br>\n\n<b>Title</b>: {{name}}</br></br>\n\n<b>Time</b>: from {{start}} to {{end}}</br></br>\n\nTo participate please use the following meeting link: <a href=\"{{meetingLink}}\">{{meetingLink}}</a></br></br>\n\n",
+    "baseMeetingInformation_static": "{{owner_id}} has invited you to a room.</br></br>\n\n<b>Title</b>: {{name}}</br></br>\n\nTo participate please use the following room link: <a href=\"{{meetingLink}}\">{{meetingLink}}</a></br></br>\n\n",
+    "meetingInfoCopy": "Copy meeting information",
+    "meetingInformation": "$t(copy.baseMeetingInformation, {\"context\": \"{{baseMeetingInformationContext}}\"})$t(copy.phoneInfo)",
+    "phoneInfo": "To <b>participate by telephone</b> please use the following dial-in number: <b>{{phone_number}}</b></br>\nConference ID: <b>{{conference_pin}}</b>",
+    "roomkit": "To <b>participate with a Cisco Roomkit</b> please use the following Cisco Roomkit (Video) link: <b>{{sip_jibri_link}}</b></br>\nConference ID: <b>{{conference_pin}}</b>",
+    "clipboardSuccess": "Copied to clipboard"
+  },
+  "meetingCard": {
+    "meetingStart": "Start meeting",
+    "meOrganiserTooltip": "I am the organiser",
+    "open": "Open",
+    "protectedByPasswordTooltip": "Protected by password",
+    "seriesTooltip": "Series meeting"
+  },
+  "conference": {
+    "start_label": "Start conference",
+    "info_text": "The instant conference can only be started by you. Anyone can join the conference using the conference information."
+  },
+  "common": {
+    "cancel": "Cancel",
+    "close": "close"
+  }
+}

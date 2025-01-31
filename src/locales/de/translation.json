@@ -1,0 +1,27 @@
+{
+  "copy": {
+    "baseMeetingInformation_instant": "Ihre Zugangsdaten für das Sofortmeeting von {{owner_id}}:</br></br>\n\nMeeting Link: <a href=\"{{meetingLink}}\">{{meetingLink}}</a></br></br>\n\n",
+    "baseMeetingInformation_normal": "{{owner_id}} hat Sie zu einem Meeting eingeladen.</br></br>\n\n<b>Titel</b>: {{name}}</br></br>\n\n<b>Zeit</b>: von {{start}} Uhr bis {{end}} Uhr</br></br>\n\nZur Teilnahme verwenden Sie bitte den folgenden Meeting Link: <a href=\"{{meetingLink}}\">{{meetingLink}}</a></br></br>\n\n",
+    "baseMeetingInformation_static": "{{owner_id}} hat Sie zu einem Raum eingeladen.</br></br>\n\n<b>Titel</b>: {{name}}</br></br>\n\nZur Teilnahme verwenden Sie bitte den folgenden Raum Link: <a href=\"{{meetingLink}}\">{{meetingLink}}</a></br></br>\n\n",
+    "meetingInfoCopy": "Meetinginformationen kopieren",
+    "meetingInformation": "$t(copy.baseMeetingInformation, {\"context\": \"{{baseMeetingInformationContext}}\"})$t(copy.phoneInfo)",
+    "phoneInfo": "Zur <b>Teilnahme über das Telefon</b> verwenden Sie bitte den folgende Einwahlnummer: <b>{{phone_number}}</b></br>\nKonferenz ID: <b>{{conference_pin}}</b>",
+    "roomkit": "Zur <b>Teilnahme mit einem Cisco Roomkit</b> verwenden Sie bitte den folgenden Cisco Roomkit (Video) Link: <b>{{sip_jibri_link}}</b></br>\nKonferenz ID: <b>{{conference_pin}}</b>",
+    "clipboardSuccess": "In die Zwischenablage kopiert"
+  },
+  "meetingCard": {
+    "meetingStart": "Meeting starten",
+    "meOrganiserTooltip": "Ich bin Organisator",
+    "open": "Öffne",
+    "protectedByPasswordTooltip": "Meeting durch Passwort geschützt",
+    "seriesTooltip": "Serientermin"
+  },
+  "conference": {
+    "start_label": "Konferenz starten",
+    "info_text": "Das Sofortmeeting kann nur von Ihnen gestartet werden. Am Sofortmeeting kann jeder mit Hilfe der Meetinginformationen teilnehmen."
+  },
+  "common": {
+    "cancel": "Abbrechen",
+    "close": "Schließen"
+  }
+}
