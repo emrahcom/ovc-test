@@ -50,7 +50,7 @@ RUN adduser --system --uid 1001 nextjs
 
 RUN \
   apt-get update; \
-  apt-get install curl dnsutils net-tools procps ack
+  apt-get install -y curl dnsutils net-tools procps ack
 
 COPY --from=builder /app/public ./public
 
