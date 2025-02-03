@@ -78,4 +78,5 @@ jobs:
           build-args: |
             NEXT_PUBLIC_APP_VERSION=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.version'] }}
             NEXT_PUBLIC_BACKEND_BASE_URL=https://api.dvb.integration.dvb.nordeck.io
-            NEXT_PUBLIC_JITSI_LINK=https://jitsi.integration.dvb.nordeck.io/
+            #NEXT_PUBLIC_JITSI_LINK=https://jitsi.integration.dvb.nordeck.io/
+            NEXT_PUBLIC_JITSI_LINK=https://meet.element.io/
