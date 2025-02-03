@@ -49,8 +49,8 @@ RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
 RUN \
-  apt-get update; \
-  apt-get install -y curl dnsutils net-tools procps ack
+  apk update; \
+  apk add --no-cache curl bind-tools net-tools procps ack
 
 COPY --from=builder /app/public ./public
 
